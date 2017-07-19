@@ -1,6 +1,6 @@
 angular.module('video-player')
 
-.controller('appCtrl', function($scope) {
+.controller('appCtrl', function(youTube) {
   this.videos = window.exampleVideoData;
   this.currentVideo = window.exampleVideoData[0];
   console.log(this.currentVideo);
@@ -11,7 +11,18 @@ angular.module('video-player')
     console.log(this.currentVideo.snippet.title);
   };
 
-  this.onClick = changeCurrentVideo;
+  var updateVideos = (query) => {
+  youTube.search(query, (items) => {
+    console.log('Searching... ' + query);
+    this.videos = items;
+    this.currentVideo = items[0];
+  });
+  }
+    this.onClick = changeCurrentVideo;
+
+    updateVideos("doggie");
+
+    this.updateVideos = updateVideos;
 
 })
 
