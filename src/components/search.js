@@ -2,12 +2,12 @@ angular.module('video-player')
 
 .controller('searchCtrl', function($scope) {
 
-this.search = (query) => {
-  console.log(' In Search ');
-  console.log(this);
+  this.search = (query) => {
+    console.log(' In Search ');
+    console.log(this);
 
-  this.updateVideos(query);
-}
+    this.updateVideos(query);
+  };
 
 })
 
@@ -16,10 +16,10 @@ this.search = (query) => {
 
   return {
     scope: {
-    	result: '<',
+      result: '<',
       updateVideos: '<'
-
     },
+
     controllerAs: 'searchCtrl',
     bindToController: true,
     controller: 'searchCtrl',

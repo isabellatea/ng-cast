@@ -12,17 +12,18 @@ angular.module('video-player')
   };
 
   var updateVideos = (query) => {
-  youTube.search(query, (items) => {
-    console.log('Searching... ' + query);
-    this.videos = items;
-    this.currentVideo = items[0];
-  });
-  }
-    this.onClick = changeCurrentVideo;
+    youTube.search(query, (items) => {
+      console.log('Searching... ' + query);
+      this.videos = items;
+      this.currentVideo = items[0];
+    });
+  };
 
-    updateVideos("doggie");
+  this.onClick = changeCurrentVideo;
 
-    this.updateVideos = updateVideos;
+  updateVideos('doggie');
+
+  this.updateVideos = updateVideos;
 
 })
 
